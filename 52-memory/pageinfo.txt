@@ -1,0 +1,16 @@
+pageinfo 
+========
+
+provides an ioctl to obtain raw page table info related to a given virtual address.
+The module walks the process's page tables starting at current->mm->pgd (equivalent to CR3 CPU register),
+it then obtains the access flags directly from the related PTE (Page Table Entry)
+
+the test program is test/t_pageinfo
+
+A sample run (-cd stands for code & data segment) gives the following results:
+
+./t_pageinfo -cd
+======== CODE SEGMENT ===========
+virtual address: 40079b -- size: 4 KB   PRES glob dirt ACC  writ EXEC huge :: flags: 0x25 :: physical page address: ba8a2000
+====== DATA SEGMENT =========
+virtual address: 601468 -- size: 4 KB   PRES glob DIRT ACC  WRIT exec huge :: flags: 0x8000000000000067 :: physical page address: b5ada000

@@ -1,0 +1,19 @@
+kthreadwq
+=========
+
+This module runs a kernel thread and a timer. The threads puts itself to sleep (on a wait queue) until
+it is told to stop or is woken up by the timer function. The timer fires at 5 sec intervals (configurable
+module parameter) and wakes up the waiting thread, which, in turn, prints a message and clears
+the 'data-ready' flag.
+
+The thread stops printing until (configurable) 5 iterations, but continues to run until the module is unloaded.
+
+TEST RUN
+
+dmesg
+
+kthreadwq: worker thread woken up at: 4313026647
+kthreadwq: worker thread woken up at: 4313031649
+kthreadwq: worker thread woken up at: 4313036649
+kthreadwq: worker thread woken up at: 4313041649
+kthreadwq: worker thread woken up at: 4313046649

@@ -1,0 +1,24 @@
+Assembly language samples
+=========================
+
+syscall_64 & syscall_32:
+-----------------------
+
+64-/32-bit programs that print a message with the write() system call. They do not use libc.
+
+syscall_cat
+-----------
+
+Implements the functionality of the cat program (you can provide a filename or read from stdin).
+Use solely the appropriate system calls (does not use libc).
+
+showarg
+-------
+
+Displays the argument list of the program. Does use libc, calls printf() to display arguments.
+Illustrates the C calling convention used in Linux.
+
+asm-inline
+----------
+
+Various examples of GCC inline assembly invocations from C code.

@@ -1,0 +1,16 @@
+mmap
+====
+
+The module implements the mmap() file operation on a character device. The module creates
+the /dev/mmap device node that the test program can access (either as root, or as normal
+user if UDEV rules are added).
+
+On request from userspace (i.e. an mmap() system call), the module maps its internal
+kernel memory buffer to userspace pages that are visible to the calling userspace process.
+Thus, changes made by kernel/userspace become immediately visible by the other party.
+
+The test program (test/t_mmap) first calls mmap() on the device file, then opens it for
+read and performs a regular read to a buffer. The buffer contents are then compared
+to the mmap'ed memory. Next, the test program overwrites the mmap'ed memory with 
+ABCDEF... character sequences and then does a regular read on the device again.
+The result of the second read is matched against the contents of the buffer.

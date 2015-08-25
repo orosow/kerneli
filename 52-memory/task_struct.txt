@@ -1,0 +1,57 @@
+task_struct
+===========
+
+Provides an entry in the /proc filesystem for any task to dump information
+from its task descriptor. The output includes general current->mm info
+as well as details regarding individual vm_area_structs (VMAs) from the
+process address spaces. So the output is similar to /proc/self/maps.
+
+cat /proc/task_struct 
+Current thread info (current): =====
+CPU: 0
+Address limit: 7ffffffff000
+Current task info (current): =====
+Command: cat
+PID: 36596
+Current task memory regions (current->mm): =====
+PGD:           13bd4c067
+Environment end:   7fff11dbcfef
+Environment:       7fff11dbc4a6
+Args end:          7fff11dbc4a6
+Args start:        7fff11dbc490
+Stack start:       7fff11dba780
+Heap end:          26c1000
+Heap start:        26a0000
+Data end:          80ab77
+Data start:        80a850
+Code end:          40a204
+Code start:        400000
+Current task VM areas: =====
+rwx + s (shared)
+S (used for I/O)
+u/d (grows up/down)
+l (locked)
+I (used for I/O)
+A (accounted VM object)
+H (huge TLB)
+N (non-linear mapping)
+400000 - 40b000 (b000): r-x------- (8001875) 0 -- cat
+60a000 - 60b000 (1000): rw-----A-- (8101873) a -- cat
+60b000 - 60c000 (1000): rw-----A-- (100073) 60b -- 
+80a000 - 80b000 (1000): rw-----A-- (8101873) a -- cat
+26a0000 - 26c1000 (21000): rw-----A-- (100073) 26a0 -- 
+3589a00000 - 3589a20000 (20000): r-x------- (8000875) 0 -- ld-2.12.so
+3589c1f000 - 3589c20000 (1000): r------A-- (8100871) 1f -- ld-2.12.so
+3589c20000 - 3589c21000 (1000): rw-----A-- (8100873) 20 -- ld-2.12.so
+3589c21000 - 3589c22000 (1000): rw-----A-- (100073) 3589c21 -- 
+3589e00000 - 3589f8b000 (18b000): r-x------- (8000075) 0 -- libc-2.12.so
+3589f8b000 - 358a18a000 (1ff000): ---------- (8000070) 18b -- libc-2.12.so
+358a18a000 - 358a18e000 (4000): r------A-- (8100071) 18a -- libc-2.12.so
+358a18e000 - 358a18f000 (1000): rw-----A-- (8100073) 18e -- libc-2.12.so
+358a18f000 - 358a194000 (5000): rw-----A-- (100073) 358a18f -- 
+7f4603e95000 - 7f4609d26000 (5e91000): r--------- (8000071) 0 -- locale-archive
+7f4609d26000 - 7f4609d29000 (3000): rw-----A-- (100073) 7f4609d26 -- 
+7f4609d40000 - 7f4609d41000 (1000): rw-----A-- (100073) 7f4609d40 -- 
+7fff11da7000 - 7fff11dbd000 (16000): rw---d-A-- (100173) 7ffffffe9 -- 
+7fff11dff000 - 7fff11e00000 (1000): r-x------- (40075) 7fff11dff -- 
+
