@@ -15,3 +15,5 @@
     } while (0)
 
 #endif
+
+#endif /* MACROS_H */
