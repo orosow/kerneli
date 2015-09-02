@@ -1,0 +1,3 @@
+kernel//home/admin/src/driver/kerneli/53-sync-time/irq_spinlock.ko
+kernel//home/admin/src/driver/kerneli/53-sync-time/kthreadwq.ko
+kernel//home/admin/src/driver/kerneli/53-sync-time/hrtimer.ko

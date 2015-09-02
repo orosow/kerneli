@@ -1,0 +1,1 @@
+cmd_/home/admin/src/driver/kerneli/53-sync-time/irq_spinlock.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/admin/src/driver/kerneli/53-sync-time/irq_spinlock.ko /home/admin/src/driver/kerneli/53-sync-time/irq_spinlock.o /home/admin/src/driver/kerneli/53-sync-time/irq_spinlock.mod.o
