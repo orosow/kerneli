@@ -1,0 +1,23 @@
+
+
+cat /proc/blkstat 
+Target device: /dev/loop0
+Read I/Os: 128 -- I/Os per sec: 10169
+Write I/Os: 201 -- I/Os per sec: 116253
+Queue depth: 0
+I/O service time (ns)
+Min: 1928 -- Max: 698275
+Mean: 74980
+Median: 7675
+10%    : 3277
+20%    : 3544
+30%    : 3693
+40%    : 4254
+50%    : 7675
+60%    : 19326
+70%    : 89934
+80%    : 205195
+90%    : 245395
+99%    : 411605
+99.999%: 698275
+
